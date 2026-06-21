@@ -1,8 +1,11 @@
 # Global Components
 
 Build reusable React components.
+
 Use Tailwind CSS.
+
 Keep components modular.
+
 Avoid page-specific duplication.
 
 ---
@@ -10,22 +13,31 @@ Avoid page-specific duplication.
 # Navbar
 
 Props:
+
 currentPage
 
 Contains:
 
 Logo
+
 Home
+
 Blogs
+
 About
+
 Contact
+
 Subscribe button
 
 Features:
 
 Sticky
+
 Transparent initially
+
 White background on scroll
+
 Hamburger menu on mobile
 
 ---
@@ -35,9 +47,13 @@ Hamburger menu on mobile
 Contains:
 
 Logo
+
 Description
+
 Quick Links
+
 Social Links
+
 Copyright
 
 ---
@@ -47,10 +63,15 @@ Copyright
 Props:
 
 title
+
 description
+
 primaryCTA
+
 secondaryCTA
+
 image
+
 socialLinks
 
 ---
@@ -60,7 +81,9 @@ socialLinks
 Props:
 
 icon
+
 number
+
 label
 
 ---
@@ -70,11 +93,17 @@ label
 Props:
 
 image
+
 category
+
 title
+
 description
+
 date
+
 readingTime
+
 slug
 
 ---
@@ -84,9 +113,13 @@ slug
 Props:
 
 image
+
 title
+
 description
+
 date
+
 readingTime
 
 ---
@@ -96,6 +129,7 @@ readingTime
 Props:
 
 name
+
 active
 
 ---
@@ -113,8 +147,11 @@ milestones
 Props:
 
 image
+
 name
+
 designation
+
 quote
 
 ---
@@ -124,6 +161,7 @@ quote
 Props:
 
 title
+
 description
 
 ---
@@ -133,7 +171,9 @@ description
 Props:
 
 placeholder
+
 value
+
 onChange
 
 ---
@@ -143,6 +183,7 @@ onChange
 Props:
 
 categories
+
 selectedCategory
 
 ---
@@ -152,7 +193,9 @@ selectedCategory
 Props:
 
 image
+
 name
+
 bio
 
 ---
@@ -162,6 +205,7 @@ bio
 Props:
 
 url
+
 title
 
 ---
@@ -171,7 +215,9 @@ title
 Props:
 
 image
+
 title
+
 readingTime
 
 ---
@@ -181,7 +227,9 @@ readingTime
 Props:
 
 avatar
+
 name
+
 comment
 
 ---
@@ -191,7 +239,9 @@ comment
 Props:
 
 icon
+
 title
+
 description
 
 ---
@@ -201,7 +251,9 @@ description
 Props:
 
 icon
+
 title
+
 description
 
 ---
@@ -211,7 +263,9 @@ description
 Props:
 
 icon
+
 title
+
 description
 
 ---
@@ -221,7 +275,9 @@ description
 Props:
 
 icon
+
 title
+
 value
 
 ---
@@ -231,9 +287,13 @@ value
 Fields:
 
 name
+
 email
+
 subject
+
 message
+
 submit
 
 ---
@@ -243,6 +303,7 @@ submit
 Props:
 
 question
+
 answer
 
 ---
@@ -252,7 +313,9 @@ answer
 Props:
 
 icon
+
 platform
+
 url
 
 ---
@@ -262,14 +325,23 @@ url
 Use:
 
 rounded-2xl
+
 border
+
 shadow-sm
+
 hover:shadow-md
+
 transition-all
+
 duration-300
+
 hover:-translate-y-1
+
 space-y-8
+
 gap-6
+
 Avoid inline styles.
 
 ---
@@ -277,44 +349,85 @@ Avoid inline styles.
 # Recommended Folder Structure
 
 src/
+
 components/
+
 layout/
+
 Navbar.jsx
+
 Footer.jsx
+
 sections/
+
 HeroSection.jsx
+
 TrustIndicators.jsx
+
 FeaturedArticles.jsx
+
 Timeline.jsx
+
 Newsletter.jsx
+
 cards/
+
 BlogCard.jsx
+
 StatCard.jsx
+
 TestimonialCard.jsx
+
 AuthorCard.jsx
+
 ExpertiseCard.jsx
+
 AchievementCard.jsx
+
 ValueCard.jsx
+
 forms/
+
 SearchBar.jsx
+
 ContactForm.jsx
+
 FAQAccordion.jsx
+
 shared/
+
 CategoryPill.jsx
+
 SocialShare.jsx
+
 SocialIconCard.jsx
+
 pages/
+
 Home.jsx
+
 Blogs.jsx
+
 BlogPost.jsx
+
 About.jsx
+
 Contact.jsx
+
 data/
+
 blogs.js
+
 testimonials.js
+
 timeline.js
+
 categories.js
+
 constants.js
+
 assets/
+
 images/
+
 icons/
