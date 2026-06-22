@@ -1,0 +1,11 @@
+# Dependencies
+node_modules/
+
+# Production build
+dist/
+
+# Google Stitch files
+stitch_founder_editorial_portfolio/
+
+# Environment variables
+.env
