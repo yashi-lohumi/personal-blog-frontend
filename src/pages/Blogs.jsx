@@ -8,6 +8,8 @@ import FadeIn from '../components/shared/FadeIn';
 import { blogs } from '../data/blogs';
 import { categories } from '../data/categories';
 import { ChevronLeft, ChevronRight, Calendar, ArrowRight } from 'lucide-react';
+import OptimizedImage from '../components/shared/OptimizedImage';
+import { BlogCardSkeleton } from '../components/shared/Skeletons';
 
 export default function Blogs() {
   const location = useLocation();
@@ -17,7 +19,21 @@ export default function Blogs() {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [currentPage, setCurrentPage] = useState(1);
+  const [isLoading, setIsLoading] = useState(true);
   const postsPerPage = 6;
+
+  // Development-only simulated loading delay
+  useEffect(() => {
+    if (import.meta.env.DEV) {
+      setIsLoading(true);
+      const timer = setTimeout(() => {
+        setIsLoading(false);
+      }, 600);
+      return () => clearTimeout(timer);
+    } else {
+      setIsLoading(false);
+    }
+  }, [selectedCategory, searchQuery, currentPage]);
 
   // Recover selected category from route state if user clicked a category pill on the home page
   useEffect(() => {
@@ -134,10 +150,11 @@ export default function Blogs() {
             <Link to={`/blogs/${featuredStory.slug}`} className="group block">
               <div className="relative bg-surface-container-lowest border border-outline-variant rounded-[16px] overflow-hidden flex flex-col lg:flex-row hover:shadow-xl transition-all duration-300">
                 <div className="lg:w-3/5 h-80 lg:h-auto overflow-hidden">
-                  <img
-                    className="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-700"
+                  <OptimizedImage
+                    wrapperClassName="w-full h-full"
+                    className="group-hover:scale-[1.02] transition-transform duration-700"
                     src={featuredStory.image}
-                    alt={featuredStory.title}
+                    alt={`Cover photo for featured article: ${featuredStory.title}`}
                   />
                 </div>
                 <div className="lg:w-2/5 p-8 lg:p-12 flex flex-col justify-center gap-stack-md">
@@ -167,7 +184,13 @@ export default function Blogs() {
         <div className="flex flex-col lg:flex-row gap-12">
           {/* Grid column */}
           <div className="lg:w-3/4 flex flex-col gap-12">
-            {currentPosts.length > 0 ? (
+            {isLoading ? (
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {Array.from({ length: postsPerPage }).map((_, idx) => (
+                  <BlogCardSkeleton key={idx} />
+                ))}
+              </div>
+            ) : currentPosts.length > 0 ? (
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {currentPosts.map((post) => (
                   <BlogCard

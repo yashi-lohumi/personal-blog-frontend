@@ -1,4 +1,5 @@
 import React from 'react';
+import OptimizedImage from '../shared/OptimizedImage';
 
 export default function TestimonialCard({ image, name, designation, quote }) {
   return (
@@ -9,7 +10,12 @@ export default function TestimonialCard({ image, name, designation, quote }) {
       
       <div className="flex items-center gap-4 pt-6 border-t border-outline-variant/30">
         <div className="w-12 h-12 rounded-full overflow-hidden shrink-0">
-          <img className="w-full h-full object-cover" src={image} alt={name} />
+          <OptimizedImage
+            wrapperClassName="w-full h-full rounded-full"
+            className="rounded-full"
+            src={image}
+            alt={`Portrait of ${name}`}
+          />
         </div>
         <div>
           <h4 className="font-meta-info text-meta-info font-bold text-on-surface">{name}</h4>

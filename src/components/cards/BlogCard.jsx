@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Calendar, Clock, ArrowRight } from 'lucide-react';
+import OptimizedImage from '../shared/OptimizedImage';
 
 export default function BlogCard({ image, category, title, description, date, readingTime, slug }) {
   return (
@@ -8,11 +9,11 @@ export default function BlogCard({ image, category, title, description, date, re
       <article className="bg-surface-container-lowest border border-outline-variant rounded-[16px] overflow-hidden hover:border-outline hover:shadow-md transition-all duration-300 flex flex-col h-full">
         {/* Image wrapper */}
         <div className="aspect-video overflow-hidden relative">
-          <img
-            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+          <OptimizedImage
+            wrapperClassName="w-full h-full"
             src={image}
-            alt={title}
-            loading="lazy"
+            alt={`Cover photo for ${title}`}
+            zoomOnHover={true}
           />
         </div>
 

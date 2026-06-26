@@ -6,6 +6,7 @@ import Newsletter from '../components/sections/Newsletter';
 import FadeIn from '../components/shared/FadeIn';
 import { faqs, socialLinks } from '../data/constants';
 import { Mail, Phone, MapPin } from 'lucide-react';
+import { getOptimizedImageUrl } from '../utils/image';
 
 export default function Contact() {
   return (
@@ -79,7 +80,7 @@ export default function Contact() {
                   <div
                     className="w-full h-48 rounded-lg bg-cover bg-center border border-outline-variant shadow-sm"
                     style={{
-                      backgroundImage: "url('https://lh3.googleusercontent.com/aida-public/AB6AXuDo57yuSsGlyP0JRE6N7NvWiN7xDFPiQ1qHpXeP62qg8jaFjTU1sM3N1dQ_5W809vqLJQKmGjIQVHz_0Icj7VEvQgegsm5gPq2CV9O7lhZuKpe68RpeVL8KU89XVA2hoBZEHF9Y4WkPvaQx-EZ45BSdWmwijDpeFkvsLVExFBz18UT-8fEMl3wdpDuhEolaaYyYgsrR0Ez23s6SReiefgSoCCDr41pRv8XHX0EEIeniC02-sNLsMyX8oqRw8cIiEMNDAW-WEI5d2zv7')"
+                      backgroundImage: `url('${getOptimizedImageUrl('https://lh3.googleusercontent.com/aida-public/AB6AXuDo57yuSsGlyP0JRE6N7NvWiN7xDFPiQ1qHpXeP62qg8jaFjTU1sM3N1dQ_5W809vqLJQKmGjIQVHz_0Icj7VEvQgegsm5gPq2CV9O7lhZuKpe68RpeVL8KU89XVA2hoBZEHF9Y4WkPvaQx-EZ45BSdWmwijDpeFkvsLVExFBz18UT-8fEMl3wdpDuhEolaaYyYgsrR0Ez23s6SReiefgSoCCDr41pRv8XHX0EEIeniC02-sNLsMyX8oqRw8cIiEMNDAW-WEI5d2zv7', 600)}')`
                     }}
                     role="img"
                     aria-label="San Francisco topographic layout map"

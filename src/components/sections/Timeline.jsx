@@ -76,7 +76,7 @@ export default function Timeline({ milestones = [], layout = 'vertical' }) {
                     {!isEven && (
                       <>
                         <div className="md:hidden mb-2">
-                          <span className="font-display-hero-mobile text-primary font-bold opacity-30">{item.year}</span>
+                          <span className="font-display-hero-mobile text-primary font-bold opacity-50 dark:opacity-70">{item.year}</span>
                         </div>
                         <div className="bg-surface border border-outline-variant p-8 rounded-[24px] shadow-sm transition-all duration-300 group-hover:shadow-lg group-hover:-translate-y-1 group-hover:border-primary">
                           <span className="font-label-caps text-primary mb-2 block font-bold">{item.title}</span>
@@ -90,7 +90,7 @@ export default function Timeline({ milestones = [], layout = 'vertical' }) {
 
                   {/* Year Tag labels */}
                   <div className={`hidden md:block md:w-1/2 ${isEven ? 'order-2 md:order-2 pl-8' : 'order-1 md:order-1 pr-8 text-right'}`}>
-                    <span className="font-display-hero-mobile text-primary font-bold opacity-20 group-hover:opacity-100 transition-opacity duration-300">
+                    <span className="font-display-hero-mobile text-primary font-bold opacity-40 dark:opacity-60 group-hover:opacity-100 transition-opacity duration-300">
                       {item.year}
                     </span>
                   </div>
@@ -99,7 +99,7 @@ export default function Timeline({ milestones = [], layout = 'vertical' }) {
                   {isEven && (
                     <div className="md:hidden order-2 pl-12 w-full">
                       <div className="mb-2">
-                        <span className="font-display-hero-mobile text-primary font-bold opacity-30">{item.year}</span>
+                        <span className="font-display-hero-mobile text-primary font-bold opacity-50 dark:opacity-70">{item.year}</span>
                       </div>
                       <div className="bg-surface border border-outline-variant p-8 rounded-[24px] shadow-sm">
                         <span className="font-label-caps text-primary mb-2 block font-bold">{item.title}</span>

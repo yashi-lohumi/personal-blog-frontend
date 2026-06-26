@@ -1,5 +1,6 @@
 import React from 'react';
 import { ArrowUpRight, Linkedin, Twitter, Github, Mail } from 'lucide-react';
+import OptimizedImage from '../shared/OptimizedImage';
 
 const iconMap = {
   Linkedin: Linkedin,
@@ -80,8 +81,9 @@ export default function HeroSection({
         <div className="order-1 md:order-2 flex justify-center">
           <div className="relative w-full aspect-square max-w-sm md:max-w-md lg:max-w-lg">
             <div className="absolute inset-0 bg-primary/5 rounded-[32px] -rotate-3 scale-105"></div>
-            <img
-              className="relative w-full h-full object-cover rounded-[32px] border border-outline-variant shadow-sm"
+            <OptimizedImage
+              wrapperClassName="relative w-full h-full rounded-[32px] border border-outline-variant shadow-sm"
+              className="rounded-[32px]"
               src={image}
               alt="Dr. Elena Vance portrait"
               loading="eager"

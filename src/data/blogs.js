@@ -1,106 +1,123 @@
 export const blogs = [
   {
     slug: "quantum-leap-neural-architecture",
-    title: "The Quantum Leap: Navigating the Next Epoch of Neural Architecture",
-    description: "As generative models reach their structural limits, we explore the emerging paradigms that will redefine cognitive computing for the next decade.",
-    category: "Artificial Intelligence",
-    readTime: "12 min read",
-    date: "Oct 24, 2024",
-    author: {
-      name: "Dr. Elena Vance",
-      role: "Founder • Consultant • Tech Enthusiast",
-      bio: "Elena is a Professor of Architecture at MIT and the lead researcher for the Generative Design Initiative. Her work explores the intersection of machine learning and urban sprawl mitigation.",
-      image: "https://lh3.googleusercontent.com/aida-public/AB6AXuC8tEX9H_-zaZQLiZJS3i9Ez3_EoOqj6GXXBJ5eaPpXqczR0l0yc_SLCLDXBjX014iqgsZko6v4pelSNH8XI6at7ie3SHU5CwWNzaL0CPPfbibH_dq57YewtGvez0DhTstKtnxzzrGalhoGIS_kC-Fx1lOkJ_dZEFQKwIXHA2aDoOvwv2IabVmB2j9Iy8goJ5pdPm43Ou_tYg3aBAT1--5XAzY2MwtpnjkICKtSUk-0nz3MVGCXuxM2VlSC0VagOOH9mB9io0Ea-rVr"
-    },
-    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuB6tadKh6RhUIQGZV-O_4ZY6e-BMpBKR5TU6VJ-vkpSjvDRp2WoSwLMLgm6A4IktBHmyeXpN8ggzN2RdZWlFC6A4W0qSbbvTQDKr-OCtt3S4aMrMwVM_pzQcghYuVTlAGGv4JJDWKMvRu9JqKlBHAzPffk8XAmpspr_1DuFnfBppBSqPY5-vPF4IIYfg0H9i0nAAnB3dG7F6L518959SguelsmIFj_VMEKbQ2YcAsy015A6sppmxS0WpAHtDtVbfFk-OcJkGXz_SiPE",
-    sections: [
-      {
-        id: "introduction",
-        title: "Introduction",
-        type: "prose",
-        content: "Generative architecture is no longer a concept confined to the pages of speculative science fiction. Today, we stand at the precipice of a structural revolution where algorithms define the curve of a cantilever and the optimization of solar gain. By leveraging massive datasets, architects are moving from 'drawing' to 'defining constraints,' allowing machine intelligence to explore millions of permutations that a human mind simply cannot visualize."
-      },
-      {
-        id: "market-trends",
-        title: "Market Trends",
-        type: "heading2",
-        content: "The Surge of Algorithmic Demand"
-      },
-      {
-        id: "market-trends-prose",
-        title: "",
-        type: "prose",
-        content: "The current global market for AI in design is projected to grow at a CAGR of 28.4% over the next five years. This isn't just about aesthetic flourishes; it's about the bottom line. Materials are more expensive than ever, and structural efficiency has transitioned from a sustainability goal into a key commercial driver."
-      },
-      {
-        id: "stats",
-        title: "Stats",
-        type: "stats",
-        metrics: [
-          { value: "40%", label: "Waste Reduction" },
-          { value: "15x", label: "Design Speed" }
-        ]
-      },
-      {
-        id: "analysis",
-        title: "Deep Analysis",
-        type: "heading2",
-        content: "Analysis of Structural Integrity"
-      },
-      {
-        id: "analysis-prose",
-        title: "",
-        type: "prose",
-        content: "Consider the recent developments in topological optimization. We are seeing bridges that look more like bone structures than steel trusses. These organic forms are not just for show—they represent the most mathematically efficient distribution of stress across a given volume. Material is deposited only where forces demand it, shedding deadweight."
-      },
-      {
-        id: "quote",
-        title: "Quote",
-        type: "quote",
-        content: "The architect of the 21st century is not a master builder, but a master of systems. We are building the brains that build the buildings."
-      },
-      {
-        id: "image",
-        title: "Titanium Node",
-        type: "image",
-        imageUrl: "https://lh3.googleusercontent.com/aida-public/AB6AXuBaL4_JArUN2E1T9R4MMgFEohgh3zONdUzqD_y36CjQ1BXqTqMsPLlsp1EuvjSQnZ185IFk7yn702Wtvzc2EhKYOCsmxXwMgrxW2WymXN7TEslal6APnpf4ojMbMK07t-VQBM8vGWKzuNG18c7C_7ugAIplSCiymE2eNdN8xV7ZpdjoMlAl5oaRX1h1OH1RUllNOUeZQaLk1ERtbtVyCFAr-UQseF7j5ue4zyT2l2hnZAMmMiqfuz3T17f0pjffx2ght1d1A5k0FKl4",
-        caption: "Topological optimization in metal 3D printing for load-bearing joints."
-      },
-      {
-        id: "callout",
-        title: "Technical Insight",
-        type: "callout",
-        content: "Most generative models today use a combination of GANs (Generative Adversarial Networks) and Reinforcement Learning to simulate environmental stresses like wind shear and seismic activity in real-time."
-      },
-      {
-        id: "sustainability",
-        title: "Sustainability Metrics",
-        type: "heading3",
-        content: "Environmental Impact & Metrics"
-      },
-      {
-        id: "sustainability-list",
-        title: "List",
-        type: "list",
-        items: [
-          "Carbon sequestration tracking through integrated material sensors and smart concrete logs.",
-          "Passive solar design algorithms that adapt to localized weather patterns and shadow ranges.",
-          "Modular disassembly paths for circular economy life-cycles, minimizing demolition waste."
-        ]
-      },
-      {
-        id: "conclusion",
-        title: "The Path Ahead",
-        type: "heading2",
-        content: "The Path Ahead"
-      },
-      {
-        id: "conclusion-prose",
-        title: "",
-        type: "prose",
-        content: "As we move forward, the friction between artificial creation and human habitability will continue to spark debate. However, the data is clear: the buildings of tomorrow will be smarter, lighter, and more responsive to the world than anything we have conceived before. Adapting to this new paradigm is no longer optional for practitioners."
-      }
-    ],
+title: "The Quantum Leap: Navigating the Next Epoch of Neural Architecture",
+description: "As generative models reach their structural limits, we explore the emerging paradigms that will redefine cognitive computing for the next decade.",
+category: "Artificial Intelligence",
+readTime: "12 min read",
+date: "Oct 24, 2024",
+
+author: {
+  name: "Dr. Elena Vance",
+  role: "Founder • Consultant • Tech Enthusiast",
+  bio: "Elena is a Professor of Architecture at MIT and the lead researcher for the Generative Design Initiative. Her work focuses on the intersection of machine learning, computational design, and sustainable urban development. Over the last decade, she has collaborated with researchers, governments, and engineering firms to explore how artificial intelligence can create resilient and environmentally conscious cities.",
+  image: "https://lh3.googleusercontent.com/aida-public/AB6AXuC8tEX9H_-zaZQLiZJS3i9Ez3_EoOqj6GXXBJ5eaPpXqczR0l0yc_SLCLDXBjX014iqgsZko6v4pelSNH8XI6at7ie3SHU5CwWNzaL0CPPfbibH_dq57YewtGvez0DhTstKtnxzzrGalhoGIS_kC-Fx1lOkJ_dZEFQKwIXHA2aDoOvwv2IabVmB2j9Iy8goJ5pdPm43Ou_tYg3aBAT1--5XAzY2MwtpnjkICKtSUk-0nz3MVGCXuxM2VlSC0VagOOH9mB9io0Ea-rVr"
+},
+
+image: "https://lh3.googleusercontent.com/aida-public/AB6AXuB6tadKh6RhUIQGZV-O_4ZY6e-BMpBKR5TU6VJ-vkpSjvDRp2WoSwLMLgm6A4IktBHmyeXpN8ggzN2RdZWlFC6A4W0qSbbvTQDKr-OCtt3S4aMrMwVM_pzQcghYuVTlAGGv4JJDWKMvRu9JqKlBHAzPffk8XAmpspr_1DuFnfBppBSqPY5-vPF4IIYfg0H9i0nAAnB3dG7F6L518959SguelsmIFj_VMEKbQ2YcAsy015A6sppmxS0WpAHtDtVbfFk-OcJkGXz_SiPE",
+
+sections: [
+  {
+    id: "introduction",
+    title: "Introduction",
+    type: "prose",
+    content: "Generative architecture is no longer a concept confined to speculative science fiction. Today, we stand at the beginning of a structural revolution where algorithms influence every stage of the design process, from the curve of a cantilever to the optimization of daylight and airflow. Architects are shifting from manually creating every detail to defining constraints and objectives, allowing machine intelligence to generate and evaluate millions of design possibilities. This transition enables faster experimentation, improved efficiency, and entirely new forms that would have been impossible to conceive through traditional workflows. The role of the architect is evolving from a creator of forms into a curator of intelligent systems."
+  },
+
+  {
+    id: "market-trends",
+    title: "Market Trends",
+    type: "heading2",
+    content: "The Surge of Algorithmic Demand"
+  },
+
+  {
+    id: "market-trends-prose",
+    title: "",
+    type: "prose",
+    content: "The global market for AI-driven design technologies is expected to expand rapidly over the next five years, fueled by increasing demand for sustainable and cost-efficient construction practices. Rising material costs, stricter environmental regulations, and urban population growth have transformed optimization from a competitive advantage into a necessity. Organizations are investing heavily in intelligent systems that can reduce waste, predict maintenance requirements, and accelerate project timelines. What was once considered experimental technology is quickly becoming a standard part of professional design pipelines."
+  },
+
+  {
+    id: "stats",
+    title: "Stats",
+    type: "stats",
+    metrics: [
+      { value: "40%", label: "Waste Reduction" },
+      { value: "15x", label: "Design Speed" }
+    ]
+  },
+
+  {
+    id: "analysis",
+    title: "Deep Analysis",
+    type: "heading2",
+    content: "Analysis of Structural Integrity"
+  },
+
+  {
+    id: "analysis-prose",
+    title: "",
+    type: "prose",
+    content: "Recent developments in topological optimization demonstrate how artificial intelligence can rethink engineering principles from the ground up. We are seeing bridges, facades, and support structures that resemble organic bone formations rather than conventional steel trusses. These shapes are not merely artistic choices; they represent mathematically optimized distributions of force. Material is placed only where structural demands require it, reducing overall weight while maintaining or even improving durability. Combined with advanced simulations, engineers can now evaluate performance against seismic activity, wind loads, and long-term wear before construction even begins."
+  },
+
+  {
+    id: "quote",
+    title: "Quote",
+    type: "quote",
+    content: "The architect of the 21st century is not a master builder, but a master of systems. We are building the brains that build the buildings."
+  },
+
+  {
+    id: "image",
+    title: "Titanium Node",
+    type: "image",
+    imageUrl: "https://lh3.googleusercontent.com/aida-public/AB6AXuBaL4_JArUN2E1T9R4MMgFEohgh3zONdUzqD_y36CjQ1BXqTqMsPLlsp1EuvjSQnZ185IFk7yn702Wtvzc2EhKYOCsmxXwMgrxW2WymXN7TEslal6APnpf4ojMbMK07t-VQBM8vGWKzuNG18c7C_7ugAIplSCiymE2eNdN8xV7ZpdjoMlAl5oaRX1h1OH1RUllNOUeZQaLk1ERtbtVyCFAr-UQseF7j5ue4zyT2l2hnZAMmMiqfuz3T17f0pjffx2ght1d1A5k0FKl4",
+    caption: "Topological optimization in metal 3D printing for load-bearing joints."
+  },
+
+  {
+    id: "callout",
+    title: "Technical Insight",
+    type: "callout",
+    content: "Modern generative systems often combine Generative Adversarial Networks, Reinforcement Learning, and simulation engines to evaluate environmental conditions in real time. These models can predict wind behavior, heat distribution, occupancy patterns, and seismic responses, allowing designers to create structures that continuously adapt to changing environments rather than remaining static throughout their lifespan."
+  },
+
+  {
+    id: "sustainability",
+    title: "Sustainability Metrics",
+    type: "heading3",
+    content: "Environmental Impact & Metrics"
+  },
+
+  {
+    id: "sustainability-list",
+    title: "List",
+    type: "list",
+    items: [
+      "Carbon sequestration tracking through integrated material sensors and smart concrete systems that monitor emissions throughout a building's life cycle.",
+      "Passive solar design algorithms that adapt to localized weather patterns, seasonal sunlight angles, and shadow ranges to reduce energy consumption.",
+      "Modular disassembly strategies that support circular economy principles, allowing buildings to be reused instead of demolished.",
+      "Smart water management systems that monitor rainfall, groundwater levels, and consumption patterns to optimize resource usage.",
+      "AI-assisted energy forecasting that predicts future demand and adjusts heating, cooling, and lighting systems automatically."
+    ]
+  },
+
+  {
+    id: "conclusion",
+    title: "The Path Ahead",
+    type: "heading2",
+    content: "The Path Ahead"
+  },
+
+  {
+    id: "conclusion-prose",
+    title: "",
+    type: "prose",
+    content: "As we move forward, the relationship between artificial intelligence and human-centered design will continue to shape the future of our cities. Questions surrounding creativity, ethics, and habitability will remain central to the conversation. However, the evidence is undeniable: tomorrow's buildings will be smarter, lighter, more adaptive, and more sustainable than anything previously imagined. For architects, engineers, and policymakers, embracing these technologies is no longer optional. The next decade will belong to those who learn to collaborate with intelligent systems rather than compete against them."
+  }
+],
     comments: [
       {
         id: 1,

@@ -62,10 +62,10 @@ export default function Newsletter({
               <button
                 type="submit"
                 disabled={loading}
-                className="bg-on-background text-white px-8 py-4 rounded-[14px] font-bold hover:bg-on-surface transition-all whitespace-nowrap active:scale-[0.98] disabled:opacity-50 flex items-center justify-center gap-2"
+                className="bg-on-background text-surface px-8 py-4 rounded-[14px] font-bold hover:bg-on-surface hover:text-surface transition-all whitespace-nowrap active:scale-[0.98] disabled:opacity-50 flex items-center justify-center gap-2"
               >
                 {loading ? (
-                  <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                  <div className="w-5 h-5 border-2 border-current border-t-transparent rounded-full animate-spin"></div>
                 ) : (
                   'Sign Up Free'
                 )}

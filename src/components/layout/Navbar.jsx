@@ -1,24 +1,42 @@
 import React, { useState, useEffect } from 'react';
-import { NavLink, Link, useNavigate } from 'react-router-dom';
-import { Menu, X, ArrowUpRight } from 'lucide-react';
+import { NavLink, Link, useNavigate, useLocation } from 'react-router-dom';
+import { Menu, X, ArrowUpRight, Sun, Moon } from 'lucide-react';
+import { useTheme } from '../../context/ThemeContext';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [scrollProgress, setScrollProgress] = useState(0);
+  const { isDark, toggleTheme } = useTheme();
   const navigate = useNavigate();
+  const location = useLocation();
+
+  const isBlogPost = location.pathname.startsWith('/blogs/');
 
   useEffect(() => {
     const handleScroll = () => {
+      // Toggle sticky navbar state
       if (window.scrollY > 20) {
         setScrolled(true);
       } else {
         setScrolled(false);
       }
+
+      // Calculate reading scroll progress on blog detail pages
+      if (isBlogPost) {
+        const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrolledPct = height > 0 ? (winScroll / height) * 100 : 0;
+        setScrollProgress(scrolledPct);
+      }
     };
 
     window.addEventListener('scroll', handleScroll);
+    // Initialize state
+    handleScroll();
+
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [isBlogPost, location.pathname]);
 
   const handleSubscribeClick = () => {
     // Navigate to contact or focus on a newsletter input
@@ -42,10 +60,8 @@ export default function Navbar() {
   return (
     <>
       <nav
-        className={`fixed top-0 left-0 w-full z-50 px-gutter py-4 transition-all duration-300 ${
-          scrolled
-            ? 'bg-surface/95 backdrop-blur-md border-b border-outline-variant shadow-sm'
-            : 'bg-transparent border-b border-transparent'
+        className={`fixed top-0 left-0 w-full z-50 px-gutter bg-surface border-b border-outline-variant shadow-sm transition-all duration-300 ${
+          scrolled ? 'py-3' : 'py-5'
         }`}
       >
         <div className="max-w-container-max mx-auto flex justify-between items-center">
@@ -66,7 +82,7 @@ export default function Navbar() {
                 className={({ isActive }) =>
                   `font-body-base text-body-base transition-all duration-200 nav-link-underline pb-1 ${
                     isActive
-                      ? 'text-primary font-bold border-b-2 border-primary'
+                      ? 'text-primary font-bold active'
                       : 'text-on-surface-variant hover:text-primary'
                   }`
                 }
@@ -76,8 +92,17 @@ export default function Navbar() {
             ))}
           </div>
 
-          {/* CTA & Mobile trigger */}
-          <div className="flex items-center gap-4">
+          {/* CTA & Theme toggle & Mobile trigger */}
+          <div className="flex items-center gap-3">
+            {/* Theme Toggle Button */}
+            <button
+              onClick={toggleTheme}
+              className="p-2.5 rounded-[12px] border border-outline-variant text-on-surface hover:bg-surface-container transition-colors active:scale-95 duration-200"
+              aria-label="Toggle dark/light mode"
+            >
+              {isDark ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
+            </button>
+
             <button
               onClick={handleSubscribeClick}
               className="bg-primary text-on-primary px-6 py-2 rounded-[14px] font-bold text-meta-info hover:shadow-md hover:bg-opacity-90 active:scale-95 transition-all"
@@ -98,7 +123,7 @@ export default function Navbar() {
 
         {/* Mobile Navigation Drawer */}
         {isOpen && (
-          <div className="md:hidden fixed inset-x-0 top-[72px] bg-surface border-b border-outline-variant shadow-lg py-6 px-gutter flex flex-col gap-6 z-40 animate-fade-in">
+          <div className="md:hidden fixed inset-x-0 top-[64px] bg-surface border-b border-outline-variant shadow-lg py-6 px-gutter flex flex-col gap-6 z-40 animate-slide-down">
             {navLinks.map((link) => (
               <NavLink
                 key={link.path}
@@ -116,6 +141,14 @@ export default function Navbar() {
               </NavLink>
             ))}
           </div>
+        )}
+
+        {/* Reading progress bar just below the navbar */}
+        {isBlogPost && (
+          <div
+            className="absolute bottom-0 left-0 h-[2px] bg-primary transition-all duration-75 ease-out"
+            style={{ width: `${scrollProgress}%` }}
+          ></div>
         )}
       </nav>
     </>

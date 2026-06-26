@@ -42,7 +42,7 @@ export default function Home() {
       {/* 1. Hero Section */}
       <FadeIn>
         <HeroSection
-          tagline="Visionary Thought Leader"
+          tagline="Visionary · Thought · Leader"
           title="Defining the Edge of Technological Possibility"
           description="I write about the intersection of frontier artificial intelligence, fintech infrastructure, product strategy, and remote leadership. Helping founders build structural authority."
           primaryCTA={{

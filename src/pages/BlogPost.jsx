@@ -7,10 +7,13 @@ import BlogCard from '../components/cards/BlogCard';
 import Newsletter from '../components/sections/Newsletter';
 import FadeIn from '../components/shared/FadeIn';
 import { blogs } from '../data/blogs';
+import OptimizedImage from '../components/shared/OptimizedImage';
+import { BlogPostSkeleton } from '../components/shared/Skeletons';
 
 export default function BlogPost() {
   const { slug } = useParams();
   const [post, setPost] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
 
   // Comments state
   const [commentsList, setCommentsList] = useState([]);
@@ -19,23 +22,29 @@ export default function BlogPost() {
 
   // Table of contents active section tracking
   const [activeSection, setActiveSection] = useState('introduction');
-  const [scrollProgress, setScrollProgress] = useState(0);
 
-  // Load post details and initialize comments
+  // Load post details and initialize comments with simulated delay in development
   useEffect(() => {
-    const currentPost = blogs.find((b) => b.slug === slug) || blogs[0];
-    setPost(currentPost);
-    setCommentsList(currentPost.comments || []);
+    if (import.meta.env.DEV) {
+      setIsLoading(true);
+      const timer = setTimeout(() => {
+        const currentPost = blogs.find((b) => b.slug === slug) || blogs[0];
+        setPost(currentPost);
+        setCommentsList(currentPost.comments || []);
+        setIsLoading(false);
+      }, 500);
+      return () => clearTimeout(timer);
+    } else {
+      const currentPost = blogs.find((b) => b.slug === slug) || blogs[0];
+      setPost(currentPost);
+      setCommentsList(currentPost.comments || []);
+      setIsLoading(false);
+    }
   }, [slug]);
 
-  // Track progress bar width and Table of Contents highlights on scroll
+  // Track Table of Contents highlights on scroll
   useEffect(() => {
     const handleScroll = () => {
-      const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-      const scrolled = height > 0 ? (winScroll / height) * 100 : 0;
-      setScrollProgress(scrolled);
-
       // Section highlighters
       if (post && post.sections) {
         const headings = post.sections.filter(s => s.type.startsWith('heading') || s.id === 'introduction');
@@ -59,13 +68,8 @@ export default function BlogPost() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [post]);
 
-  if (!post) {
-    return (
-      <div className="py-24 text-center">
-        <div className="w-12 h-12 border-4 border-primary border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
-        <p className="font-body-large text-body-large text-on-surface-variant">Loading article...</p>
-      </div>
-    );
+  if (isLoading || !post) {
+    return <BlogPostSkeleton />;
   }
 
   // Related articles lookups
@@ -107,9 +111,6 @@ export default function BlogPost() {
 
   return (
     <div className="pb-12">
-      {/* 1. Sticky top reading progress indicator */}
-      <div className="article-progress-bar" style={{ width: `${scrollProgress}%` }}></div>
-
       <div className="max-w-container-max mx-auto px-gutter pt-8 md:pt-12">
         {/* 2. Blog Header */}
         <header className="max-w-[800px] mx-auto text-center mb-10">
@@ -138,7 +139,11 @@ export default function BlogPost() {
 
         {/* 3. Featured Image */}
         <div className="w-full aspect-[16/9] mb-12 md:mb-16 rounded-xl overflow-hidden border border-outline-variant shadow-sm">
-          <img className="w-full h-full object-cover" src={post.image} alt={post.title} />
+          <OptimizedImage
+            wrapperClassName="w-full h-full"
+            src={post.image}
+            alt={`Cover photo for ${post.title}`}
+          />
         </div>
 
         {/* 4. Two column content block */}
@@ -250,8 +255,8 @@ export default function BlogPost() {
                     return (
                       <figure key={idx} className="my-8 text-center">
                         <div className="w-full h-80 md:h-[400px] rounded-xl overflow-hidden border border-outline-variant shadow-sm">
-                          <img
-                            className="w-full h-full object-cover"
+                          <OptimizedImage
+                            wrapperClassName="w-full h-full"
                             src={section.imageUrl}
                             alt={section.title}
                           />
@@ -303,14 +308,14 @@ export default function BlogPost() {
               <div className="flex gap-2">
                 <button
                   onClick={() => scrollRelated('left')}
-                  className="w-10 h-10 rounded-full border border-outline-variant flex items-center justify-center bg-white hover:bg-primary hover:text-white transition-colors"
+                  className="w-10 h-10 rounded-full border border-outline-variant flex items-center justify-center bg-surface-container-lowest hover:bg-primary hover:text-white transition-colors"
                   aria-label="Scroll left"
                 >
                   <ChevronLeft className="w-5 h-5" />
                 </button>
                 <button
                   onClick={() => scrollRelated('right')}
-                  className="w-10 h-10 rounded-full border border-outline-variant flex items-center justify-center bg-white hover:bg-primary hover:text-white transition-colors"
+                  className="w-10 h-10 rounded-full border border-outline-variant flex items-center justify-center bg-surface-container-lowest hover:bg-primary hover:text-white transition-colors"
                   aria-label="Scroll right"
                 >
                   <ChevronRight className="w-5 h-5" />
@@ -357,7 +362,12 @@ export default function BlogPost() {
               <div key={comm.id} className="flex flex-col gap-4">
                 <div className="flex gap-4">
                   <div className="w-12 h-12 rounded-full overflow-hidden shrink-0">
-                    <img className="w-full h-full object-cover" src={comm.avatar} alt={comm.name} />
+                    <OptimizedImage
+                      wrapperClassName="w-full h-full rounded-full"
+                      className="rounded-full"
+                      src={comm.avatar}
+                      alt={comm.name}
+                    />
                   </div>
                   <div className="flex-1">
                     <div className="flex items-center gap-2 mb-1">
@@ -379,7 +389,12 @@ export default function BlogPost() {
                     className="flex gap-4 ml-12 border-l-2 border-surface-container-high pl-6 mt-2"
                   >
                     <div className="w-10 h-10 rounded-full overflow-hidden shrink-0">
-                      <img className="w-full h-full object-cover" src={rep.avatar} alt={rep.name} />
+                      <OptimizedImage
+                        wrapperClassName="w-full h-full rounded-full"
+                        className="rounded-full"
+                        src={rep.avatar}
+                        alt={rep.name}
+                      />
                     </div>
                     <div className="flex-1">
                       <div className="flex items-center gap-2 mb-1">
@@ -399,7 +414,7 @@ export default function BlogPost() {
           </div>
 
           {/* New Comment Form Box */}
-          <form onSubmit={handlePostComment} className="mt-8 p-6 bg-white border border-outline-variant rounded-xl shadow-sm">
+          <form onSubmit={handlePostComment} className="mt-8 p-6 bg-surface-container-lowest border border-outline-variant rounded-xl shadow-sm">
             <textarea
               value={newCommentText}
               onChange={(e) => setNewCommentText(e.target.value)}

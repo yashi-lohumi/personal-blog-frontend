@@ -148,10 +148,10 @@ export default function About() {
       {/* 7. Call To Action Page Banner */}
       <FadeIn>
         <section className="max-w-container-max mx-auto px-gutter py-section-v-space-mobile md:py-section-v-space">
-          <div className="bg-inverse-surface text-inverse-on-surface p-12 md:p-24 rounded-[32px] text-center relative overflow-hidden shadow-lg">
+          <div className="bg-surface-container-high border border-outline-variant p-12 md:p-24 rounded-[32px] text-center relative overflow-hidden shadow-lg">
             <div className="absolute top-0 right-0 w-64 h-64 bg-primary/20 blur-[100px]"></div>
             <div className="relative z-10 max-w-xl mx-auto flex flex-col items-center">
-              <h2 className="font-display-hero-mobile md:font-display-hero text-display-hero-mobile md:text-display-hero text-white mb-8 leading-tight">
+              <h2 className="font-display-hero-mobile md:font-display-hero text-display-hero-mobile md:text-display-hero text-on-surface mb-8 leading-tight">
                 Let's build something meaningful together.
               </h2>
               <button

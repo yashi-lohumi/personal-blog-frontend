@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Linkedin, Twitter, Mail, Check } from 'lucide-react';
+import OptimizedImage from '../shared/OptimizedImage';
 
 export default function AuthorCard({ image, name, bio, role }) {
   const [following, setFollowing] = useState(false);
@@ -8,7 +9,12 @@ export default function AuthorCard({ image, name, bio, role }) {
     <div className="mt-section-v-space pt-12 border-t border-outline-variant flex flex-col md:flex-row items-center gap-stack-lg">
       {/* Author portrait */}
       <div className="w-24 h-24 rounded-full overflow-hidden border-2 border-primary p-1 shrink-0">
-        <img className="w-full h-full object-cover rounded-full" src={image} alt={name} />
+        <OptimizedImage
+          wrapperClassName="w-full h-full rounded-full"
+          className="rounded-full"
+          src={image}
+          alt={`Portrait of ${name}`}
+        />
       </div>
 
       {/* Profile info */}
